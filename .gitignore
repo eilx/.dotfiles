@@ -1,0 +1,9 @@
+# Block all by default
+/*
+!.gitignore
+
+# Allow subfolders of ~/.config
+!/.config
+.config/*
+
+# -| Whitelist |- #
