@@ -140,21 +140,29 @@ whichkey.register({
 		s = { ':Telescope file_browser path=%:p:h select_buffer=true<cr>', '[s]earch from here' },
 		t = { ':TodoTelescope<cr>', '[t]odos' }
 	},
-
 	g = {
 		name = '[g]it',
 		g = { ':lua _LazyGitToggle()<cr>', 'Open [g]it' },
 	},
-
+	i = { ':lua vim.lsp.buf.hover()<cr>', '[i]nspect' },
+	l = {
+		name = '[l]sp',
+		a = { ':lua vim.lsp.buf.code_action()<cr>', '[a]ction' },
+		d = { ':lua vim.lsp.buf.definition()<cr>', '[d]efinition' },
+		D = { ':lua vim.lsp.buf.declaration()<cr>', '[D]eclaration' },
+		i = { ':lua vim.lsp.buf.implementation()<cr>', '[i]mplementation' },
+		r = { ':lua vim.lsp.buf.rename()<cr>', '[r]ename' },
+		R = { ':lua vim.lsp.buf.references()<cr>', '[R]eferences' },
+		s = { ':lua vim.lsp.buf.signature_help()<cr>', '[s]ignature help' },
+		t = { ':lua vim.lsp.buf.type_definition()<cr>', '[t]ype definition' },
+	},
 	p = {
 		name = '[p]rojects',
 		p = { ':Telescope projects<cr>', 'explore [p]rojects' }
 	},
-
 	t = {
 		name = '[t]asks',
 		r = { ':OverseerRun<cr>', '[r]un' },
 		t = { ':OverseerToggle<cr>', '[t]oggle' }
 	}
-
 }, { prefix = '<leader>' })
