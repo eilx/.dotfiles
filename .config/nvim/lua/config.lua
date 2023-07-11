@@ -153,6 +153,10 @@ whichkey.register({
 		s = { ':lua vim.lsp.buf.signature_help()<cr>', '[s]ignature help' },
 		t = { ':lua vim.lsp.buf.type_definition()<cr>', '[t]ype definition' },
 	},
+	m = {
+		name = '[m]arks',
+		m = { ':Telescope marks<cr>', '[m]arks' }
+	},
 	p = {
 		name = '[p]rojects',
 		p = { ':Telescope projects<cr>', 'explore [p]rojects' }

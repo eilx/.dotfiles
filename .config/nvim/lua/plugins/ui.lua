@@ -10,6 +10,11 @@ return {
 		'f-person/git-blame.nvim'
 	},
 	{
+		'chentoast/marks.nvim',
+		opts = {
+		}
+	},
+	{
 		'lewis6991/gitsigns.nvim',
 		opts = {
 			signs = {
