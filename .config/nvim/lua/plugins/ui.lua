@@ -7,6 +7,9 @@ return {
 		'onsails/lspkind.nvim',
 	},
 	{
+		'f-person/git-blame.nvim'
+	},
+	{
 		'lewis6991/gitsigns.nvim',
 		opts = {
 			signs = {
