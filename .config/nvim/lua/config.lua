@@ -35,9 +35,6 @@ vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { silent = true })
 -- Close terminal
 vim.keymap.set('t', '<C-d>', '<cmd>bdelete!<cr>', { silent = true })
 
---| Lualine |--
-
-
 --| Telescope |--
 
 local telescope = require('telescope')
@@ -72,6 +69,7 @@ telescope.load_extension('projects')
 --| LSP |--
 
 local lsp_zero = require('lsp-zero')
+local lspconfig = require('lspconfig')
 local lsp = lsp_zero.preset({})
 
 lsp.on_attach(function(_, bufnr)
@@ -79,7 +77,6 @@ lsp.on_attach(function(_, bufnr)
 	lsp.buffer_autoformat()
 end)
 
-local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.set_sign_icons({

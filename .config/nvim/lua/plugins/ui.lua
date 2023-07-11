@@ -57,7 +57,7 @@ return {
 						end
 					end
 				} },
-				lualine_c = { 'filename', 'diagnostics' },
+				lualine_c = { 'diagnostics' },
 				lualine_x = { 'buffers' },
 				lualine_y = { 'encoding', 'filetype' },
 				lualine_z = { 'location' }

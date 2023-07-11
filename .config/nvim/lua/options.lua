@@ -38,4 +38,3 @@ vim.o.scrolloff = 12
 vim.o.updatetime = 200
 vim.o.timeout = true
 vim.o.timeoutlen = 300
-vim.o.colorcolumn = 100
