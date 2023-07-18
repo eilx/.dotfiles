@@ -2,14 +2,19 @@ return {
 	{
 		'kevinhwang91/nvim-ufo',
 		event = 'BufRead',
-		dependencies = { 'kevinhwang91/promise-async' },
+		dependencies = {
+			'kevinhwang91/promise-async',
+			{
+				'anuvyklack/fold-preview.nvim',
+				dependencies = { 'anuvyklack/keymap-amend.nvim' },
+				opts = {}
+			},
+		},
 		config = function()
-			vim.o.foldcolumn = '1'
 			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
 			vim.o.foldenable = true
 			require('ufo').setup {
-				provider_selector = function(bufnr, filetype, buftype)
+				provider_selector = function ()
 					return { 'treesitter', 'indent' }
 				end
 			}
