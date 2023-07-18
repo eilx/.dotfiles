@@ -1,41 +1,104 @@
 return {
 	{
-		'numToStr/Comment.nvim',
-		opts = {}
-	},
-	{
-		'windwp/nvim-autopairs',
-		event = 'InsertEnter',
-		opts = {}
-	},
-	{
-		'windwp/nvim-ts-autotag',
-	},
-	{
-		'nacro90/numb.nvim',
-		opts = {}
-	},
-	{
-		'anuvyklack/pretty-fold.nvim',
-		opts = {
-			fill_char = '─'
-		}
-	},
-	{
-		'ahmedkhalf/project.nvim',
+		'kevinhwang91/nvim-ufo',
+		event = 'BufRead',
+		dependencies = { 'kevinhwang91/promise-async' },
 		config = function()
-			require('project_nvim').setup({
-				direction_methods = { 'pattern' }
-			})
+			vim.o.foldcolumn = '1'
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+			require('ufo').setup {
+				provider_selector = function(bufnr, filetype, buftype)
+					return { 'treesitter', 'indent' }
+				end
+			}
 		end
 	},
 	{
-		'Exafunction/codeium.vim',
+		'folke/todo-comments.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		opts = {}
 	},
 	{
-		'kylechui/nvim-surround',
-		version = '*',
+		'folke/flash.nvim',
 		event = 'VeryLazy',
+		opts = {},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function() require("flash").jump() end,
+				desc =
+				"Flash"
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function() require("flash").treesitter() end,
+				desc =
+				"Flash Treesitter"
+			},
+			{
+				"r",
+				mode = "o",
+				function() require("flash").remote() end,
+				desc =
+				"Remote Flash"
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function() require("flash").treesitter_search() end,
+				desc =
+				"Treesitter Search"
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function() require("flash").toggle() end,
+				desc =
+				"Toggle Flash Search"
+			},
+		},
+	},
+	{
+		'lukas-reineke/indent-blankline.nvim',
+		opts = {
+			show_current_context = true,
+			show_current_context_start = true,
+		}
+	},
+	{
+		'chentoast/marks.nvim',
 		opts = {}
-	}
+	},
+	{
+		'echasnovski/mini.move',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.pairs',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.splitjoin',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.sessions',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.starter',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.surround',
+		opts = {}
+	},
+	{
+		'echasnovski/mini.comment',
+		opts = {}
+	},
 }

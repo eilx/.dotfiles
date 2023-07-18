@@ -1,16 +1,24 @@
 return {
-	{
+	'nvim-telescope/telescope-file-browser.nvim',
+	dependencies = {
 		'nvim-telescope/telescope.nvim',
-		branch = '0.1.x',
-		dependencies = {
-			'nvim-lua/plenary.nvim'
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		'nvim-lua/plenary.nvim'
+	},
+	config = function()
+		local telescope = require('telescope')
+		telescope.setup {
+			extensions = {
+				fzf = {},
+				file_browser = {
+					hijack_netrw = true,
+					initial_mode = 'normal',
+					depth = 4
+				}
+			}
 		}
-	},
-	{
-		'nvim-telescope/telescope-fzf-native.nvim',
-		build = 'make'
-	},
-	{
-		'nvim-telescope/telescope-file-browser.nvim',
-	}
+
+		telescope.load_extension 'file_browser'
+		telescope.load_extension 'fzf'
+	end
 }

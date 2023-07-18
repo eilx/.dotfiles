@@ -7,11 +7,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 250 }
 	end,
 })
-
--- Autosave
-vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost' }, {
-	pattern = '*.*',
-	callback = function()
-		vim.api.nvim_command('silent update')
-	end
-})
