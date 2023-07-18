@@ -87,7 +87,7 @@ return {
 			}
 
 			require('mason-lspconfig').setup {
-				ensure_installed = { 'lua-ls' },
+				ensure_installed = { 'lua_ls' },
 				handlers = {
 					lsp.default_setup,
 					lua_ls = function ()
